@@ -95,6 +95,7 @@ class RecipeTest extends TestCase
             'procedure' => 'Parboil rice, get pepper and mix, and some spice and serve!'
         ]);
         $this->user->recipes()->save($recipe);
+        
         $response = $this->withHeaders([
             'Authorization' => 'Bearer ' . $token,
         ])->json('GET', route('recipe.show', ['recipe' => $recipe->id]));

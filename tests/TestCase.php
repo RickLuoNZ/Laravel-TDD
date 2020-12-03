@@ -13,8 +13,9 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->artisan('migrate');
-        $this->artisan('db:seed');
+        //no need to do migrate because RefreshDatabase Trait will help on this
+        //$this->artisan('migrate');
+        //$this->artisan('db:seed');
 
         $this->withoutExceptionHandling(); //To get the actual Exception whenever it occurs instead of Laravel handing the exception.
     }

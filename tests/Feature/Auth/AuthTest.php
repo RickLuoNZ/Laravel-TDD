@@ -24,11 +24,12 @@ class AuthTest extends TestCase
 
         //Send post request
         $response = $this->json('POST',route('api.register'),$data);
+
         //Assert it was successful
         $response->assertStatus(200);
         //Assert we received a token
         $this->assertArrayHasKey('token',$response->json());
-        //Delete data
+        //Delete data, no needed, because we use RefreshDB
         //User::where('email','test@gmail.com')->delete();
     }
 
@@ -50,10 +51,9 @@ class AuthTest extends TestCase
             'email' => 'test@gmail.com',
             'password' => 'secret1234',
         ]);
+
         //Assert it was successful and a token was received
         $response->assertStatus(200);
         $this->assertArrayHasKey('token',$response->json());
-        //Delete the user
-        //User::where('email','test@gmail.com')->delete();
     }
 }

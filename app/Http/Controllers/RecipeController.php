@@ -43,6 +43,7 @@ class RecipeController extends Controller
             abort(404);
             return;
         }
+
         //Update and return
         $recipe->update($request->only('title', 'procedure'));
         return $recipe->toJson();
@@ -54,6 +55,7 @@ class RecipeController extends Controller
             abort(404);
             return;
         }
+
         return $recipe->toJson();
     }
 
@@ -63,6 +65,7 @@ class RecipeController extends Controller
             abort(404);
             return;
         }
+        
         $recipe->delete();
     }
 }
