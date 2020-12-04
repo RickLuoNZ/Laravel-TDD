@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication, WithFaker;
+    use ReflectionTrait;
 
     protected function setUp(): void
     {
